@@ -21,12 +21,13 @@ export class IdempotencyStore {
   }
 
   complete(key: string): void {
+    const now = new Date().toISOString();
     const record = this.deliveries.get(key);
-    if (!record) throw new Error(`delivery not started: ${key}`);
     this.deliveries.set(key, {
-      ...record,
+      key,
       state: "completed",
-      completedAt: new Date().toISOString(),
+      startedAt: record?.startedAt ?? now,
+      completedAt: now,
     });
   }
 
