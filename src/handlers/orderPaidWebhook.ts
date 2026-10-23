@@ -13,6 +13,10 @@ export async function handleOrderPaid(
   const deliveryId = headers["x-ajeets-delivery-id"];
   if (!deliveryId) throw new Error("missing delivery id");
 
+  if (!idempotencyStore.tryStart(deliveryId)) {
+    return { duplicate: true } as const;
+  }
+
   const shipment = await fulfillment.createShipment(body.orderId);
   idempotencyStore.complete(deliveryId);
 
