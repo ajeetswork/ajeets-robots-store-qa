@@ -7,6 +7,10 @@ export interface ShipmentReadyEvent {
 }
 
 export async function consumeShipmentReady(event: ShipmentReadyEvent) {
+  if (!idempotencyStore.tryStart(event.eventId)) {
+    return { duplicate: true } as const;
+  }
+
   const pickup = await carrier.bookPickup(event.shipmentId);
   idempotencyStore.complete(event.eventId);
 
