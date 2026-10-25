@@ -1,0 +1,7 @@
+{
+  "http": { "port": 8080 },
+  "logging": { "level": "info" },
+  "cache": { "ttlSeconds": 300 },
+  "inventory": { "syncIntervalMinutes": 15 },
+  "telemetry": { "sampleRate": 0.10 }
+}
