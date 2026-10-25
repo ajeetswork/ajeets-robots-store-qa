@@ -1,0 +1,20 @@
+{
+  "records": {
+    "inventory.syncIntervalMinutes": {
+      "requestedBy": "operations",
+      "incident": "OPS-1842",
+      "createdOn": "2026-09-18",
+      "expiresOn": "2026-09-30"
+    },
+    "telemetry.sampleRate": {
+      "requestedBy": "platform",
+      "incident": "OBS-219",
+      "createdOn": "2026-10-22",
+      "expiresOn": "2026-10-31"
+    }
+  },
+  "values": {
+    "inventory": { "syncIntervalMinutes": 30 },
+    "telemetry": { "sampleRate": 0.30 }
+  }
+}
