@@ -1,0 +1,6 @@
+{
+  "logging": { "level": "warn" },
+  "cache": { "ttlSeconds": 600 },
+  "inventory": { "syncIntervalMinutes": 10 },
+  "telemetry": { "sampleRate": 0.25 }
+}
